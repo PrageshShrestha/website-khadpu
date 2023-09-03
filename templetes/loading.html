@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>{% load static %}
+<head>
+   <!-- Our project just needs Font Awesome Free's Solid and Brand files -->
+   <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+   <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+<script src="jquery-3.6.0.min.js"></script>
+ <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="{% static 'overall.css' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+ </head>
+<head>
+  <title>Access Denied - Error</title>
+  <style>
+    /* Styles for the error page */
+    body {
+      background-color: #F2F2F2;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 100px auto;
+      background-color: #FFFFFF;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #FF5C5C;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+
+    .animation {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto;
+      animation: shake 1s infinite;
+    }
+
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-10px) rotate(-10deg); }
+      50% { transform: translateX(10px) rotate(10deg); }
+      75% { transform: translateX(-10px) rotate(-10deg); }
+      100% { transform: translateX(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Access Denied</h1>
+    <p>Oops! It looks like you've stumbled upon the restricted area.</p>
+    <div class="animation">
+      <img src="{% static 'error.jpg' %}" alt="Cute Error Image" style='width:100px;height:100%;'>
+    </div>
+    <p>Our apologies, but the admin panel is only accessible to authorized personnel.</p>
+    <p>If you believe this is a mistake, please contact our support team for assistance.</p>
+    <p>Thank you for your understanding!</p>
+  </div>
+</body>
+</html>

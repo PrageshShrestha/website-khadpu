@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Display</title>
+</head>
+{% load static%}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-L1JoVNx0o6Fmd3MA82L2DKYMDwK3ws1vjVMbb56R6w7hPcD83FCk4D9GJjM3GzF" crossorigin="anonymous">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<body>
+
+<a href = '{% url "add_gallery" %}'>Menu</a>
+<nav>
+    <ul>
+        <li><a href="#images">Images</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#politics">Politics</a></li>
+        <li><a href="#text_info">Text Info</a></li>
+    </ul>
+</nav>
+
+<div id="images">
+    <h2>Images</h2>
+    <ul>
+        {% for image in images %}
+		
+            <li>{{ image.name }}</li><form method='POST' style='display:inline-flex;min-width:20vw;'>{% csrf_token %}
+			    <button class="delete-button" data-id="{{image.id}}" data-model="Images">Delete Item</button><a href="{% url 'info' model='Images' id=image.id %}">Change</a></form>
+
+        {% endfor %}
+    </ul>
+</div>
+
+<div id="gallery">
+    <h2>Gallery</h2>
+    <ul>
+        {% for item in gallery %}
+		
+            <li>{{ item.name }}</li><form method='POST' style='display:inline-flex;min-width:20vw;'>{% csrf_token %}
+			 <button class="delete-button" data-id="{{item.id}}" data-model="Gallery">Delete Item</button><a href="{% url 'info' model='Gallery' id=item.id %}">Change</a></form>
+        {% endfor %}
+    </ul>
+</div>
+
+<div id="politics">
+    <h2>Politics</h2>
+    <ul>
+        {% for item in politics %}
+		
+            <li>{{ item.name }}</li><form method='POST' style='display:inline-flex;min-width:20vw;'>{% csrf_token %}
+			 <button class="delete-button"  data-id="{{item.id}}" data-model="Politics">Delete Item</button><a href="{% url 'info' model='Politics' id=item.id %}">Change</a></form>
+        {% endfor %}
+    </ul>
+</div>
+
+<div id="text_info">
+    <h2>Text Info</h2>
+    <ul>
+        {% for item in text_info %}
+		    
+            <li>{{ item.name }}</li><form method='POST' style='display:inline-flex;min-width:20vw;'>{% csrf_token %}
+			 <button class="delete-button" data-id="{{item.id}}" data-model="text_info">Delete Item</button><a href="{% url 'info' model='text_info' id=item.id %}">Change</a></form>
+        {% endfor %}
+    </ul>
+</div>
+
+</body>
+</html>
+<style>
+
+/* Reset default margin and padding */
+body, h1, h2, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+nav {
+    background-color: #333;
+    color: white;
+}
+
+nav ul {
+    list-style: none;
+    padding: 10px;
+    display: flex;
+}
+
+nav li {
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+/* Section styling */
+div {
+    padding: 20px;
+	min-height:100vh;
+    background-color: white;
+    margin: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Hover effect on list items */
+li:hover {
+    background-color: #f9f9f9;
+	color:black;
+}
+
+
+</style>
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+    <script>
+        $(document).ready(function() {
+		
+            $(".delete-button").click(function(e) {
+			
+                var id = $(this).data("id"); // Assuming you have data-id attribute on the button
+                var modelClass = $(this).data("model"); // Assuming you have data-model attribute on the button
+                 console.log(modelClass);
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'true_customize' %}",
+                    data: {
+					'csrfmiddlewaretoken': '{{csrf_token}}',
+                     'model':modelClass,
+					 'id':id,
+                    },
+                    success: function(response) {
+                        $(".response-message").text(response.data);
+                        setTimeout(function() {
+                            $(".response-message").text("");
+                            location.reload(); // Refresh the page after a brief delay
+                        }, 1000); // Delay in milliseconds before refreshing
+                    },
+                    error: function() {
+                        $(".response-message").text("An error occurred.");
+                    }
+                });
+            });
+        });
+    </script>
+	

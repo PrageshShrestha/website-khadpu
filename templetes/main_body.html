@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+<body>
+<script>
+
+
+</script>
+<div class='tesla'>
+		 <video autoplay muted loop id="video-bg">
+            <source src="your-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+		
+		<div class='tesla-text'>
+		EXPERIANCE KHAMPU (KHADPU)<br>
+		<p style='font-size:1rem;'>Do visit Us !! </p>
+		
+		</div>
+		
+		</div>
+<div class="carousel-container">
+  <div class="carousel">
+    <img src="{% static 'error.jpg' %}" alt="Image 1">
+    <img src="{% static 'error.jpg' %}" alt="Image 2">
+    <img src="{% static 'error.jpg' %}" alt="Image 3">
+    <!-- Add more images as needed -->
+  </div>
+ 
+  <div class="carousel-nav">
+    <div class="prev"><i class="fas fa-chevron-left"></i></div>
+    <div class="next"><i class="fas fa-chevron-right"></i></div>
+  </div>
+
+  <div class="carousel-dots">
+    <div class="dot" data-index='0'></div>
+    <div class="dot" data-index='1'></div>
+    <div class="dot" data-index='2'></div>
+    <!-- Add more dots as needed -->
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  var slideIndex = 0;
+
+  function showSlide(index) {
+    var slidePosition = -index * 80;
+    $('.carousel').css('transform', `translateX(${slidePosition}vw)`);
+
+    $('.dot').removeClass('active');
+    $('.dot[data-index="' + index + '"]').addClass('active');
+  }
+
+  function autoSlide() {
+    slideIndex = (slideIndex + 1) % $('.dot').length;
+    showSlide(slideIndex);
+  }
+
+  $('.dot').on('click', function() {
+    var slide = parseInt($(this).data('index'));
+    showSlide(slide);
+    clearInterval(sliderInterval);
+  });
+
+  $('.prev').on('click', function() {
+    slideIndex = (slideIndex - 1 + $('.dot').length) % $('.dot').length;
+    showSlide(slideIndex);
+    clearInterval(sliderInterval);
+  });
+
+  $('.next').on('click', function() {
+    slideIndex = (slideIndex + 1) % $('.dot').length;
+    showSlide(slideIndex);
+    clearInterval(sliderInterval);
+  });
+
+  var sliderInterval = setInterval(autoSlide, 3000);
+
+  showSlide(slideIndex);
+});
+</script>
+<div class='height90'>
+<div class='design'>
+<div class='design_cont a'>
+<div class='typewriter'>
+hello world and how are you
+</div>
+</div>
+<div class='design_cont b'>
+
+    <img src="{% static 'error.jpg' %}" alt="Your Image">
+  </div>
+
+</div>
+
+
+
+<div class='design'>
+
+<div class='design_cont a'>
+
+    <img src="{% static 'error.jpg' %}" alt="Your Image">
+  </div>
+<div class='design_cont b'>
+<div class='typewriter'>
+hello world and how are you
+</div>
+</div>
+</div>
+
+
+<div class='design'>
+<div class='design_cont a'>
+<div class='typewriter'>
+hello world and how are you
+</div>
+</div>
+<div class='design_cont b'>
+
+    <img src="{% static 'error.jpg' %}" alt="Your Image">
+  </div>
+
+</div>
+
+</div>
+
+
+<script>
+
+$(document).ready(function() {
+  var designContAs = $('.design_cont.a');
+  
+  $(window).on('scroll', function() {
+    var scrollTop = $(this).scrollTop();
+    
+    designContAs.each(function() {
+      var designContATop = $(this).offset().top - $(window).height();
+
+      if (scrollTop > designContATop && !$(this).hasClass('typewriter-animated')) {
+        $(this).find('.typewriter').addClass('typewriter-animate');
+        $(this).addClass('typewriter-animated');
+      }
+    });
+  });
+});
+
+
+</script>

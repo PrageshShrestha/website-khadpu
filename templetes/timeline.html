@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% load static %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{% static 'mainpage.css' %}">
+<title>श्रीखण्डपुरमा बर्षेणी मनाइने जत्रा तथा चढपर्ब</title>
+<script src="https://cdn.jsdelivr.net/npm/nepali-date-converter@1.0.0/dist/index.min.js"></script>
+</head>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    {% include 'mainpage.css' %}
+</style>
+<script>
+$(document).ready(function () {
+  const timeline = $('.timeline');
+  const dateDisplay = $('.date-display');
+  const monthNamesNepali = [
+    'बैशाख', 'जेठ', 'अषाढ', 'श्रावण', 'भाद्र', 'आश्विन',
+    'कार्तिक', 'मंसिर', 'पौष', 'माघ', 'फाल्गुण', 'चैत्र'
+  ];
+
+  timeline.on('mousemove', function (event) {
+    const timelineHeight = timeline.height();
+    const mouseY = event.pageY - timeline.offset().top;
+    const monthIndex = Math.floor((mouseY / timelineHeight) * 12) + 1;
+
+    const selectedMonth = monthIndex;
+    const selectedDate = Math.floor(((mouseY % (timelineHeight / 12)) / (timelineHeight / 12)) * 30) + 1;
+
+    const nepaliDate = `${monthNamesNepali[selectedMonth - 1]} ${selectedDate}`;
+    dateDisplay.text(nepaliDate);
+  });
+
+  timeline.on('mouseleave', function () {
+    dateDisplay.text('');
+  });
+});
+
+</script>
+</body>
+</html>
+<style>
+body {
+  font-family: 'Noto Sans Nepali', Arial, sans-serif;
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+  color: #333;
+
+}
+
+
+h1{
+width:100vw;
+position:absolute;
+height:4vh;
+top:0;
+font-size:1.2rem;
+text-align:center;
+}
+
+</style>
+<body>
+<h1>श्रीखण्डपुरमा बर्षेणी मनाइने जात्रा तथा चाड्पर्व</h1>
+  <div class="box a" style='margin-top:10.2vh;'>
+ 
+  <div class='date'>बैशाख  १</div>
+   
+    <div class="top_line a"></div>
+    <div class="box2">
+      <p class="heading">बिस्केट जात्रा</p>
+      
+  
+
+   </div>
+  </div>
+
+
+
+<div class="box b"  style='margin-top:11.5vh;' >
+  <div class='date'>बैशाख २  </div>
+    <div class="top_line b"></div>
+    <div class="box2">
+      <p class="heading">कलंदान</p>
+      
+    </div>
+  </div>
+
+<div class="box a" style='margin-top:16vh;' >
+  <div class='date'>बैशाख ५ </div>
+   
+    <div class="top_line a"></div>
+    <div class="box2">
+      <p class="heading">लिङ्गो ढाल्ने</p>
+      
+  
+
+   </div>
+  </div>
+
+
+
+<div class="box b" style='margin-top:57vh;' >
+  <div class='date'>जेठ  ४</div>
+    <div class="top_line b"></div>
+    <div class="box2">
+      <p class="heading">सिथि चःह्रे</p>
+      
+    </div>
+  </div>
+<div class="box a">
+ <div class='date'>Date</div>
+   
+    <div class="top_line a"></div>
+    <div class="box2">
+      <p class="heading">basora puja</p>
+      
+  
+
+   </div>
+  </div>
+
+
+
+<div class="box b" style='margin-top:175vh;' >
+  <div class='date'>श्रावण ३०</div>
+    <div class="top_line b"></div>
+    <div class="box2">
+      <p class="heading">गठेमंगल</p>
+      
+    </div>
+  </div>
+<div class="box a" style='margin-top:195.2vh;' >
+
+  <div class='date'>भदौ १४</div>
+   
+    <div class="top_line a"></div>
+    <div class="box2">
+      <p class="heading">जनै पूर्णिमा / क्वाति पुर्ने/गाईजात्रा</p>
+      
+  
+
+   </div>
+  </div>
+
+
+
+<div class="box b"  >
+  <div class='date'></div>
+    <div class="top_line b"></div>
+    <div class="box2">
+      <p class="heading">bhimsen jatra</p>
+      
+    </div>
+  </div><div class="box b" style='margin-top:203.8vh;' >
+  <div class='date'>भदौ २०</div>
+   
+    <div class="top_line b"></div>
+    <div class="box2">
+      <p class="heading">श्रीकृष्ण जन्माष्टमी</p>
+      
+  
+
+   </div>
+  </div>
+
+
+
+<div class="box b"  >
+  <div class='date'></div>
+    <div class="top_line b"></div>
+    <div class="box2">
+      <p class="heading">narayan jatra</p>
+      
+    </div>
+  </div>
+
+<div class="box a" >
+ 
+  <div class='date'>Date</div>
+   
+    <div class="top_line a"></div>
+    <div class="box2">
+      <p class="heading">buddha bhagwan jayanti</p>
+      
+  
+
+   </div>
+  </div>
+
+
+
+<div class="box b"  style='margin-top:221.5vh;' >
+  <div class='date'>आषाढ ३</div>
+    <div class="top_line b"></div>
+    <div class="box2">
+      <p class="heading">संविधान दिवस</p>
+      
+    </div>
+  </div>
+<div class="box a"  style='margin-top:256.5vh;' >
+ 
+  <div class='date'>आश्विन २८</div>
+   
+    <div class="top_line a"></div>
+    <div class="box2">
+      <p class="heading">घटस्थापना</p>
+      
+  
+
+   </div>
+ 
+</div>
+
+
+<div class="box b"  style='margin-top:269.2vh;' >
+  <div class='date'>कार्तिक ७</div>
+    <div class="top_line b"></div>
+    <div class="box2">
+      <p class="heading">बडा दशैं</p>
+      
+    </div>
+
+</div>
+<div class="box a" style='margin-top:295.2vh;' >
+ 
+  <div class='date' style='margin-left:-1vw;'>कार्तिक २५-२९</div>
+   
+    <div class="top_line a"></div>
+    <div class="box2">
+      <p class="heading">तिहार</p>
+      
+  
+
+   </div>
+
+</div>
+
+
+<div class="box b" style='margin-top:356.8vh;'>
+  <div class='date'>पौष १०</div>
+    <div class="top_line b"></div>
+    <div class="box2">
+      <p class="heading">योमरि पुन्हि</p>
+      
+    </div>
+ 
+</div><div class="box a" style='margin-top:400vh;'>
+ 
+  <div class='date'>माघ ११</div>
+   
+    <div class="top_line a"></div>
+    <div class="box2">
+      <p class="heading">छ्याला पुन्हि / स्वस्तानी ब्रत कथा प्रारंभ</p>
+      
+  
+
+   </div>
+ 
+</div>
+
+
+<div class="box b" style='margin-top:386vh;' >
+  <div class='date'>माघ १</div>
+    <div class="top_line b"></div>
+    <div class="box2">
+      <p class="heading">छ्या चाकु सुल्हु / माघे सङ्क्रान्ति</p>
+      
+    </div>
+ 
+</div><div class="box a"  >
+ 
+  <div class='date'>फाल्गुण १२</div>
+   
+    <div class="top_line a"></div>
+    <div class="box2">
+      <p class="heading">सि पुन्हे / स्वस्तानी ब्रत कथा समाप्त</p>
+      
+  
+
+   </div>
+ 
+</div>
+
+
+<div class="box b"  >
+  <div class='date'>फाल्गुण २५</div>
+    <div class="top_line b"></div>
+    <div class="box2">
+      <p class="heading">महा शिवरात्रि</p>
+      
+    </div>
+
+</div>
+<div class='month_names_modified'>
+{% for i in monthNamesNepali %}
+<div class='month_dates_modified'>
+{{i}}
+
+</div>
+{% endfor %}
+</div>
+<style>
+.month_names_modified{
+
+ position: absolute;
+  width: 99vw;
+  height: 500vh;
+  right:1vw;
+  overflow:hidden;
+  top: 7.5vh;
+  justify-content: center;
+  align-items: center;
+  
+  cursor: pointer;
+
+}
+.month_dates_modified{
+height:26.667vh;
+padding-top:15vh;
+width:100%;
+padding-left:88vw;
+overflow-y:hidden;
+font-size:1.4rem;
+
+border-bottom:1px solid #ccc;
+
+}
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="date-display"></div><br>
+<div class="timeline-container">
+  <div class="timeline">
+    {% for monthName in monthNamesNepali %}
+	
+      <div class="timeline-month">
+       
+        {% for day in days_in_month %}
+          <div class="timeline-day"></div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+
+
+
+
+

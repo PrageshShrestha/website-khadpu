@@ -1,0 +1,123 @@
+{% load static%}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-L1JoVNx0o6Fmd3MA82L2DKYMDwK3ws1vjVMbb56R6w7hPcD83FCk4D9GJjM3GzF" crossorigin="anonymous">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+<style>
+    {% include 'mainpage.css' %}
+</style>
+</head>
+<body>
+<p id="navbar"><i class="fa-solid fa-bars  fa-3x"></i></p>
+    <a href="https://en.wikipedia.org/wiki/Shreekhandapur" class="link_t"> <img src="{% static 'logo.png' %}"></a>
+    <div class="head" >
+	
+        <div id="no_head">
+            
+         <a href="{% url 'home' %}">
+    <i class="fas fa-home"></i> Khadpu
+</a>
+<a href="{% url 'destinations' %}" id="des_btn">
+    <i class="fas fa-search"></i> Explore
+</a>
+<a href="{% url 'more_info' %}">
+    <i class="fas fa-globe"></i> Culture
+</a>
+
+<a href="{% url 'gallery' %}">
+    <i class="fas fa-image"></i> Gallery
+</a>
+<a href="{% url 'politics' %}">
+    <i class="fas fa-landmark"></i> Government
+</a>
+
+            <!-- <a class="find" href="https://www.facebook.com/Shreekhandapur-Khadpu-1432993073581896">Facebook here</a> -->
+            <a href="https://www.google.com/maps/place/%E0%A4%AD%E0%A5%88%E0%A4%B0%E0%A4%B5+%E0%A4%AE%E0%A4%A8%E0%A5%8D%E0%A4%A6%E0%A4%BF%E0%A4%B0/@27.6158726,85.5320363,882m/data=!3m1!1e3!4m13!1m7!3m6!1s0x39eb0926e8d1afe3:0x12d89d1301bc073b!2z4KS24KWN4KSw4KWA4KSW4KSo4KWN4KSh4KSq4KWB4KSwLCDgpKrgpKjgpYzgpKTgpYA!3b1!8m2!3d27.6143189!4d85.5316107!3m4!1s0x39eb09271e4155b3:0x652ea570d80c83a3!8m2!3d27.615936!4d85.5339641!5m1!1e4">Find Khadpu?</a>
+        </div>
+    </div>
+    <script>
+	
+ $(document).ready(function () {
+        var windowSize = $(window).width();
+        if (windowSize <= 1023) {
+            $('#navbar').show();
+            $('#navbar').click(function (e) {
+                e.stopPropagation();
+                $('#no_head').toggleClass('expanded');
+                $('body').toggleClass('dark-mode');
+                $(this).hide();
+                $('.prev-btn').hide();
+            });
+
+            $(document).click(function () {
+                $('#no_head').removeClass('expanded');
+                $('body').removeClass('dark-mode');
+                $('#navbar').show();
+                $('.prev-btn').hide();
+            });
+        }
+    });
+    </script>
+</body>
+</html>
+<script>
+$(document).ready(function(){
+var windowSize = $(window).width();
+if (windowSize <= 1023) {
+$('.calender').hide();
+}
+});
+
+</script>
+<div class='calender'>
+<a href="{% url 'timeline' %}"><i class="fas fa-calendar"></i>
+</a>
+</div>
+
+ 
+  <style>
+  
+    #goToTop {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px;
+      background-color: #333;
+      color: #fff;
+      cursor: pointer;
+	  z-index:10;
+    }
+  </style>
+
+<body>
+  <!-- Your content here -->
+
+  <div id="goToTop">Go to Top</div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      var scrollButton = $("#goToTop");
+
+      // Show/hide the button based on scroll position
+      $(window).scroll(function() {
+        if ($(this).scrollTop() > 120 * $(window).height() / 100) {
+          scrollButton.fadeIn();
+        } else {
+          scrollButton.fadeOut();
+        }
+      });
+
+      // Scroll to top when button is clicked
+      scrollButton.click(function() {
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+        return false;
+      });
+    });
+  </script>
+</body>
+</html>
+
+ 

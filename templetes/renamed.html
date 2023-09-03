@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js">
+</head>
+<style>
+    {% include 'mainpage.css ' %}
+</style>
+{% load static %}
+<body>
+    
+    <div class = 'add_new' style = 'height:600px;'>
+        <img src="{% static 'mainimg.png' %}" style ='width:100px;height:100px;border-radius:50%;margin-left:35%;'>
+        <form method = 'POST' enctype="multipart/form-data">{% csrf_token %}
+      <div style='display:inline-flex; margin-top:20px;'>  <p style='margin-left:40px; width:150px;'>Image here:</p>
+        <input type='file' name = 'image' style='margin-left:-30px;' required>
+        <select name ='type' required>
+        <option value = 'Mandir'>Mandir</option>
+        
+        <option value = 'Learning'>School / college</option>
+		<option value='Hotels'>Hotel</option>
+		<option value='Grocessory'>Grocessory </option>
+		<option value='Bridge'>Bridge</option>
+		
+		<option value='Healthcare'>Health care</option>
+        <option value = 'Library'>Library</option>
+        <option value = 'Yoga'>Yoga</option>
+        <option value = 'Place'>Place</option>
+       
+        <option value = 'others'>Others</option>
+        </select>
+    </div>
+   
+        <p>Name here:</p>
+        <input type = 'text' name='name' required>
+        <p>Description</p>
+        <textarea name = 'desc' required>
+        </textarea>
+        <input type = 'text' name = 'location' required placeholder = 'location url(from google earth only)'>
+        <button>Next</button>
+        <div style='display:inline-flex;'>
+            <p style = 'margin-left:00px;font-size:15px;margin-top:10px;'><a href='{% url "add_gallery" %}'>Go to add_to_gallery page??</a></p>
+            <p style = 'margin-left:50px;font-size:15px;margin-top:10px;'><a href='{% url "gallery" %}'>Mainpage</a></p>
+            <p style = 'margin-left:50px;font-size:15px;margin-top:10px;'><a href='{% url "add_politics" %}'>Go to add_politics page</a></p>
+
+            </div>
+    </form>
+    
+</body>
+</html>
+<a id = 'customize' href='{% url "customize" %}'>Customize</a>
+<style>
+#customize{
+   position:fixed;
+   top:18vh;
+   right:29vw;
+
+}
+</style>

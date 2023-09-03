@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khadpu = Shreekhandapur</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js">
+</head>
+<style>
+    {% include 'mainpage.css' %}
+</style>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.btn-a').click(function () {
+            var rotation = getRotationDegrees($('.btn-a'));
+            
+            if (rotation === 0) {
+                $('.btn-a').css({'transform': 'rotate(180deg)', 'transition': '0.8s'});
+                $('.text_heading_div').css('left', '29vw');
+            } else {
+                $('.text_heading_div').css('left', '100vw');
+                $('.btn-a').css({'transform': 'rotate(0deg)', 'transition': '0.8s'});
+            }
+        });
+
+        function getRotationDegrees(obj) {
+            var matrix = obj.css('transform');
+            if (matrix !== 'none') {
+                var values = matrix.split('(')[1].split(')')[0].split(',');
+                var a = values[0];
+                var b = values[1];
+                var angle = Math.round(Math.atan2(b, a) * (180 / Math.PI));
+                return (angle < 0) ? angle + 360 : angle;
+            }
+            return 0;
+        }
+    });
+</script>
+
+
+
+<body>
+  
+
+	  {% include 'main_navbar.html' %}
+	 <div class="scroll-controls">
+    <button class="scroll-button prev-button">Previous</button>
+    <button class="scroll-button next-button">Next</button>
+</div>
+ <script>
+        $(document).ready(function() {
+            var scrollAmount = parseInt($(window).height() * 0.9); // 90vh
+
+            $('.prev-button').click(function() {
+			
+                var currentScroll = parseInt($('.mainbody1').scrollTop());
+				
+                $('.mainbody1').animate({ scrollTop: currentScroll - scrollAmount }, 1000);
+            });
+
+            $('.next-button').click(function() {
+                var currentScroll = parseInt($('.mainbody1').scrollTop());
+                $('.mainbody1').animate({ scrollTop: currentScroll + scrollAmount }, 1000);
+            });
+        });
+    </script>
+ <button class = 'btn-a'><i class="fa-solid fa-arrow-left"></i></button>
+	 <div class='mainbody1'>
+	 
+
+
+   <div class='text_heading_div'>
+    <p style='font-size: 1.5rem; margin-bottom: 0;'>Content</p>
+    {% for i in text_info %}
+    <p class='text_heading' data-target='{{ i.id }}'>{{ i.name }}</p>
+    {% endfor %}
+</div>
+
+<div class='info-container'>
+    {% for i in text_info %}
+    <div class='info_hello' id='{{ i.id }}'>
+        <p style='font-size: 1.6rem; letter-spacing: 1px; word-spacing: 2px;'>{{ i.name }}</p>
+        <div class='info-content'>
+		{% if i.image %}
+            <img src='{{ i.image.url }}' class='image_text'>
+            {% endif %}
+            <p class='info_hellop'>
+			
+                {{ i.info_text }}
+            </p>
+
+           
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('.text_heading').on('click', function() {
+        var target = $(this).data('target');
+        var $targetElement = $('#' + target);
+        var margin = parseFloat($(window).height() * 0.15); // Adjust the margin value as needed
+        
+        // Calculate the target offset including margin
+        var offsetWithMargin = $targetElement.offset().top -margin;
+        console.log(offsetWithMargin);
+        // Scroll to the target element
+        $('.mainbody1').animate({
+            scrollTop: offsetWithMargin
+        }, 1000); 
+		$targetElement.css('border', '2px solid black');
+        
+        // Remove the border after 1 second
+        setTimeout(function() {
+            $targetElement.css('border', 'none');
+        }, 3000);// Adjust the duration (in milliseconds) as needed
+    });
+});
+</script>
+
+<script>
+$(document).ready(function() {
+  $(window).on('scroll', function() {
+    var scrollTop = $(this).scrollTop();
+    var windowHeight = $(this).height();
+    var parallaxImage = $('.parallax-image');
+    var maxHeight = 2 * windowHeight; // Adjust as needed
+
+    if (scrollTop <= maxHeight) {
+      var newHeight = 100 + (scrollTop / maxHeight) * 100;
+      var maxGap = 40; // 40vw
+
+      parallaxImage.css('height', newHeight + 'vh');
+      parallaxImage.css('clip-path', 'polygon(0 0, 100% 0, 100% ' + (100 - maxGap) + '%, 0 ' + maxGap + '%)');
+    }
+  });
+});
+
+
+
+
+</script>
+<div class="parallax-container">
+    <img src='{% static "pashupati.jpg" %}' class="parallax-image">
+	</div>
+	

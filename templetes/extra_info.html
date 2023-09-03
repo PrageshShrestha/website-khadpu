@@ -1,0 +1,101 @@
+<!-- <link rel = 'stylesheet' href = " https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.btn-a').click(function () {
+		
+		
+		 var viewportWidth = $(window).width();
+
+        if (viewportWidth < 601) {
+             var rotation = getRotationDegrees($('.btn-a'));
+            
+            if (rotation === 0) {
+                $('.btn-a').css({'transform': 'rotate(180deg)', 'transition': '0.8s'});
+                $('.extra_info').css('left', '42vw');
+				
+            } else {
+                $('.extra_info').css('left', '100vw');
+                $('.btn-a').css({'transform': 'rotate(0deg)', 'transition': '0.8s'});
+            }
+        }
+		else if (viewportWidth >= 601 && viewportWidth < 992) {
+        var rotation = getRotationDegrees($('.btn-a'));
+            
+            if (rotation === 0) {
+                $('.btn-a').css({'transform': 'rotate(180deg)', 'transition': '0.8s'});
+                $('.extra_info').css('left', '42vw');
+				
+            } else {
+                $('.extra_info').css('left', '100vw');
+                $('.btn-a').css({'transform': 'rotate(0deg)', 'transition': '0.8s'});
+            }
+        }
+           
+        });
+
+        function getRotationDegrees(obj) {
+            var matrix = obj.css('transform');
+            if (matrix !== 'none') {
+                var values = matrix.split('(')[1].split(')')[0].split(',');
+                var a = values[0];
+                var b = values[1];
+                var angle = Math.round(Math.atan2(b, a) * (180 / Math.PI));
+                return (angle < 0) ? angle + 360 : angle;
+            }
+            return 0;
+        }
+    });
+</script>
+
+<button class = 'btn-a'><i class="fa-solid fa-arrow-left"></i></button>
+<div class='extra_info'>
+    <!-- $(document).ready(function(){
+        $('.btn-a').click(function(){
+         $('.extra_info').css('left' , '40px');
+        })}) $(document).ready(function(){
+  
+   })-->
+
+    <img src=''>
+    <div>
+        <p>Country : </p>
+        <p>Zone:</p>
+        <p>Province: </p>
+        <p>District:</p>
+         <p>Muncipality:</p>
+          <p class="lan">Languages:</p>
+          <p style='margin-top:-5px;'>Area code:</p>
+           <p>Elevation:</p>
+    </div>
+    <div class='extra_info1 a'>
+       <a href ='https://en.wikipedia.org/wiki/Nepal'> <p>Nepal</p></a>
+       <a href = 'https://en.wikipedia.org/wiki/Bagmati_Zone'> <p>Bagmati Zone</p></a>
+        <p>3</p>
+        <a href = 'https://en.wikipedia.org/wiki/Kavrepalanchok_District'><p>Kavrepalanchok</p></a>
+       <a href = "https://dhulikhelmun.gov.np/en"> <p>Dhulikhel Muncipality</p></a>
+        <a href ='https://en.wikipedia.org/wiki/Newar_language' class="lan"><p>Nepal Bhasa (or Newar language), Nepali</p></a>
+        <p>011</p>
+        <p>1,400 m (4,600 ft)</p>
+
+
+    </div>
+	<script>
+	$(document).ready(function() {
+    $(window).scroll(function() {
+        var scrollTop = $(window).scrollTop();
+        var windowHeight = $(window).height();
+
+        $(".extra_info1").each(function() {
+            var offsetTop = $(this).offset().top;
+
+            if (offsetTop < scrollTop + windowHeight) {
+                $(this).addClass("animate");
+            }
+        });
+    });
+});
+	
+	
+	</script>
+</div>

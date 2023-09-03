@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khadpu/Places to visit</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js">
+</head>
+<style>
+    {% include 'mainpage.css' %}
+</style>
+<body>
+    <a href = '{% url "home" %}' class = 'page' style='text-decoration:underline;'>Destinations</a>
+   {% include 'main_navbar.html' %}
+   <div class='second_main_dest'>
+    {% for i in type %}
+   <div id = "{{i}}">{{i}}</div>
+   {% endfor %}
+   </div>
+ <div class='new_div_1'>
+    <div class = 'new_div' style = 'position:absolute;cursor:pointer;'>
+	
+	
+	<div class='insider a'>
+        {% for i in mandir %}
+        <div class = 'dest'>
+           <img src='{{i.image.url}}' class = 'new_div_img'>
+           <div>
+            <a href = '{{i.location}}' class='dest_a'>Show in maps <i class="fa-solid fa-earth-americas"></i></a>
+
+            <p class='ptag' style = 'font-family:sans-serif;letter-spacing:3px;color:grey;'>Khadpu</p>
+            <h1>{{i.name}}</h1>
+            
+            <p class = 'typec' style = 'color:grey;'>{{i.type}}</p>
+            <p class = 'descriptionc'>{{i.description}}</p>
+           </div>
+
+
+        </div>{%endfor%}
+		</div>
+		<div class='insider b'>
+        {% for i in Historic %}
+        <div class = 'dest'>
+           <img src='{{i.image.url}}' class = 'new_div_img'>
+           <div>
+            <a href = '{{i.location}}' class='dest_a'>Show in maps <i class="fa-solid fa-earth-americas"></i></a>
+
+            <p class='ptag' style = 'font-family:sans-serif;letter-spacing:3px;color:grey;'>Khadpu</p>
+            <h1>{{i.name}}</h1>
+            
+            <p class = 'typec' style = 'color:grey;'>{{i.type}}</p>
+            <p class = 'descriptionc'>{{i.description}}</p>
+           </div>
+
+
+        </div>{%endfor%}
+		</div>
+		<div class='insider c'>
+        {% for i in school %}
+        <div class = 'dest'>
+           <img src='{{i.image.url}}' class = 'new_div_img'>
+           <div>
+            <a href = '{{i.location}}' class='dest_a'>Show in maps <i class="fa-solid fa-earth-americas"></i></a>
+
+            <p class='ptag' style = 'font-family:sans-serif;letter-spacing:3px;color:grey;'>Khadpu</p>
+            <h1>{{i.name}}</h1>
+            
+            <p class = 'typec' style = 'color:grey;'>{{i.type}}</p>
+            <p class = 'descriptionc'>{{i.description}}</p>
+           </div>
+
+
+        </div>{%endfor%}
+		</div>
+		<div class='insider d'>
+        {% for i in health %}
+        <div class = 'dest'>
+           <img src='{{i.image.url}}' class = 'new_div_img'>
+           <div>
+            <a href = '{{i.location}}' class='dest_a'>Show in maps <i class="fa-solid fa-earth-americas"></i></a>
+
+            <p class='ptag' style = 'font-family:sans-serif;letter-spacing:3px;color:grey;'>Khadpu</p>
+            <h1>{{i.name}}</h1>
+            
+            <p class = 'typec' style = 'color:grey;'>{{i.type}}</p>
+            <p class = 'descriptionc'>{{i.description}}</p>
+           </div>
+
+
+        </div>{%endfor%}
+		</div>
+		<div class='insider e'>
+        {% for i in library %}
+        <div class = 'dest'>
+           <img src='{{i.image.url}}' class = 'new_div_img'>
+           <div>
+            <a href = '{{i.location}}' class='dest_a'>Show in maps <i class="fa-solid fa-earth-americas"></i></a>
+
+            <p class='ptag' style = 'font-family:sans-serif;letter-spacing:3px;color:grey;'>Khadpu</p>
+            <h1>{{i.name}}</h1>
+            
+            <p class = 'typec' style = 'color:grey;'>{{i.type}}</p>
+            <p class = 'descriptionc'>{{i.description}}</p>
+           </div>
+
+
+        </div>{%endfor%}
+		</div>
+		<div class='insider f'>
+        {% for i in Yoga %}
+        <div class = 'dest'>
+           <img src='{{i.image.url}}' class = 'new_div_img'>
+           <div>
+            <a href = '{{i.location}}' class='dest_a'>Show in maps <i class="fa-solid fa-earth-americas"></i></a>
+
+            <p class='ptag' style = 'font-family:sans-serif;letter-spacing:3px;color:grey;'>Khadpu</p>
+            <h1>{{i.name}}</h1>
+            
+            <p class = 'typec' style = 'color:grey;'>{{i.type}}</p>
+            <p class = 'descriptionc'>{{i.description}}</p>
+           </div>
+
+
+        </div>{%endfor%}
+		</div>
+		<div class='insider g'>
+        {% for i in hotel %}
+        <div class = 'dest'>
+           <img src='{{i.image.url}}' class = 'new_div_img'>
+           <div>
+            <a href = '{{i.location}}' class='dest_a'>Show in maps <i class="fa-solid fa-earth-americas"></i></a>
+
+            <p class='ptag' style = 'font-family:sans-serif;letter-spacing:3px;color:grey;'>Khadpu</p>
+            <h1>{{i.name}}</h1>
+            
+            <p class = 'typec' style = 'color:grey;'>{{i.type}}</p>
+            <p class = 'descriptionc'>{{i.description}}</p>
+           </div>
+
+
+        </div>{%endfor%}
+		</div>
+		<div class='insider h'>
+        {% for i in gro %}
+        <div class = 'dest'>
+           <img src='{{i.image.url}}' class = 'new_div_img'>
+           <div>
+            <a href = '{{i.location}}' class='dest_a'>Show in maps <i class="fa-solid fa-earth-americas"></i></a>
+
+            <p class='ptag' style = 'font-family:sans-serif;letter-spacing:3px;color:grey;'>Khadpu</p>
+            <h1>{{i.name}}</h1>
+            
+            <p class = 'typec' style = 'color:grey;'>{{i.type}}</p>
+            <p class = 'descriptionc'>{{i.description}}</p>
+           </div>
+
+
+        </div>{%endfor%}
+		</div>
+		<div class='insider i'>
+        {% for i in bridge %}
+        <div class = 'dest'>
+           <img src='{{i.image.url}}' class = 'new_div_img'>
+           <div>
+            <a href = '{{i.location}}' class='dest_a'>Show in maps <i class="fa-solid fa-earth-americas"></i></a>
+
+            <p class='ptag' style = 'font-family:sans-serif;letter-spacing:3px;color:grey;'>Khadpu</p>
+            <h1>{{i.name}}</h1>
+            
+            <p class = 'typec' style = 'color:grey;'>{{i.type}}</p>
+            <p class = 'descriptionc'>{{i.description}}</p>
+           </div>
+
+
+        </div>{%endfor%}
+		</div>
+		<div class='insider j'>
+        {% for i in others %}
+        <div class = 'dest'>
+           <img src='{{i.image.url}}' class = 'new_div_img'>
+           <div>
+            <a href = '{{i.location}}' class='dest_a'>Show in maps <i class="fa-solid fa-earth-americas"></i></a>
+
+            <p class='ptag' style = 'font-family:sans-serif;letter-spacing:3px;color:grey;'>Khadpu</p>
+            <h1>{{i.name}}</h1>
+            
+            <p class = 'typec' style = 'color:grey;'>{{i.type}}</p>
+            <p class = 'descriptionc'>{{i.description}}</p>
+           </div>
+
+
+        </div>{%endfor%}
+		</div>
+        
+    </div>
+	</div>
+	
+</body>
+</html>
+<script>
+$(document).ready(function(){
+ var windowSize = $(window).width();
+        if (windowSize >= 1023) {
+$('#Mandir').on('click' , function(){
+$('.insider.a').css('margin-left','0vw');
+
+});
+$('#Places').on('click' , function(){
+$('.insider.a').css('margin-left','-82vw');
+
+});
+$('#Learning').on('click' , function(){
+$('.insider.a').css('margin-left','-164vw');
+
+});
+$('#Healthcare').on('click' , function(){
+$('.insider.a').css('margin-left','-246vw');
+
+});
+$('#Library').on('click' , function(){
+$('.insider.a').css('margin-left','-328vw');
+
+});
+$('#Yoga').on('click' , function(){
+$('.insider.a').css('margin-left','-410vw');
+
+});
+$('#Hotels').on('click' , function(){
+$('.insider.a').css('margin-left','-492vw');
+
+});
+$('#Grocessory').on('click' , function(){
+$('.insider.a').css('margin-left','-572vw');
+
+});
+$('#Bridge').on('click' , function(){
+$('.insider.a').css('margin-left','-654vw');
+
+});
+$('#others').on('click' , function(){
+$('.insider.a').css('margin-left','-736vw');
+
+});
+}
+if(windowSize < 1023){
+$('#Mandir').on('click' , function(){
+$('.insider.a').css('margin-left','0vw');
+
+});
+$('#Places').on('click' , function(){
+$('.insider.a').css('margin-left','-100vw');
+
+});
+$('#Learning').on('click' , function(){
+$('.insider.a').css('margin-left','-200vw');
+
+});
+$('#Healthcare').on('click' , function(){
+$('.insider.a').css('margin-left','-300vw');
+
+});
+$('#Library').on('click' , function(){
+$('.insider.a').css('margin-left','-400vw');
+
+});
+$('#Yoga').on('click' , function(){
+$('.insider.a').css('margin-left','-500vw');
+
+});
+$('#Hotels').on('click' , function(){
+$('.insider.a').css('margin-left','-600vw');
+
+});
+$('#Grocessory').on('click' , function(){
+$('.insider.a').css('margin-left','-700vw');
+
+});
+$('#Bridge').on('click' , function(){
+$('.insider.a').css('margin-left','-800vw');
+
+});
+$('#others').on('click' , function(){
+$('.insider.a').css('margin-left','-882.5vw');
+
+});
+
+}
+});
+
+
+</script>
+
+ <script>
+$(document).ready(function() {
+  $(window).on('scroll', function() {
+    var scrollTop = $(this).scrollTop();
+    var windowHeight = $(this).height();
+    var parallaxImage = $('.parallax-image');
+    var maxHeight = 2 * windowHeight; // Adjust as needed
+
+    if (scrollTop <= maxHeight) {
+      var newHeight = 100 + (scrollTop / maxHeight) * 100;
+      var maxGap = 40; // 40vw
+
+      parallaxImage.css('height', newHeight + 'vh');
+      parallaxImage.css('clip-path', 'polygon(0 0, 100% 0, 100% ' + (100 - maxGap) + '%, 0 ' + maxGap + '%)');
+    }
+  });
+});
+
+
+
+
+</script>
+<div class="parallax-container">
+    <img src='{% static "pashupati.jpg" %}' class="parallax-image">
+	</div>

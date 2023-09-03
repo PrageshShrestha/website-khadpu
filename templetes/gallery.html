@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khadpu/gallery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js">
+</head>
+<style>
+    {% include 'mainpage.css' %}
+</style>
+
+<body>
+  <a href = '{% url "home" %}' class = 'page' style='text-decoration:underline;'>Gallery</a>
+   {% include 'main_navbar.html' %}
+    <div class='mainbody'>
+     
+      <br>
+      <!-- <div style="display:inline-flex; margin-left:50px;margin-top:10px;">
+        <a>ALL</a>
+        <a>Jatra</a>
+      </div> -->
+      <div>
+        <p class='font20' style = ' font-family:sans-serif; animation-name:square; animation-duration:4s;'>
+            Gallery of our Shreekhandapur
+        </p>
+        
+      </div>
+    </div>
+    <div class='main3' style="display:inline;position:absolute;" >
+    <div class = 'display' style=" margin-top:10px;">
+      {% for i in pictures|slice:"0:3" %}
+        <div class = 'hello_gallery'>
+            <img src="{{i.image.url}}" alt="" style="width:100%;height:90%;">
+            <p class = 'p'>{{i.name}}</p>
+        </div>
+        
+        {% endfor %}<br>
+        
+    </div><br>
+    <div style=" display:inline-flex;margin-top:10px;">
+      {% for i in pictures|slice:"3:6" %}
+        <div class = 'hello_gallery'>
+            <img src="{{i.image.url}}" alt="" style="height:290px;width:350px;  ">
+            <p class = 'p'>{{i.name}}</p>
+        </div>
+        
+        {% endfor %}<br>
+        
+    </div><br>
+    <div style=" display:inline-flex;margin-top:10px;">
+      {% for i in pictures|slice:"6:9" %}
+        <div class = 'hello_gallery'>
+            <img src="{{i.image.url}}" alt="" style="height:290px;width:350px;  ">
+            <p class = 'p'>{{i.name}}</p>
+        </div>
+        
+        {% endfor %}<br>
+        
+    </div><br>
+    <div style=" display:inline-flex;margin-top:10px;">
+      {% for i in pictures|slice:"9:12" %}
+        <div class = 'hello_gallery'>
+            <img src="{{i.image.url}}" alt="" style="height:290px;width:350px;  ">
+            <p class = 'p'>{{i.name}}</p>
+        </div>
+        
+        {% endfor %}<br>
+        
+    </div><br>
+    <div style=" display:inline-flex;margin-top:10px;">
+      {% for i in pictures|slice:"12:15" %}
+        <div class = 'hello_gallery'>
+            <img src="{{i.image.url}}" alt="" style="height:290px;width:350px;  ">
+            <p class = 'p'>{{i.name}}</p>
+        </div>
+        
+        {% endfor %}<br>
+        
+    </div><br>
+    <div style=" display:inline-flex;margin-top:10px;">
+      {% for i in pictures|slice:"15:18" %}
+        <div class = 'hello_gallery'>
+            <img src="{{i.image.url}}" alt="" style="height:290px;width:350px;  ">
+            <p class = 'p'>{{i.name}}</p>
+        </div>
+        
+        {% endfor %}<br>
+        
+    </div><br>
+    
+            </div>
+</body>
+</html>
+<script>
+$(document).ready(function() {
+  $(window).on('scroll', function() {
+    var scrollTop = $(this).scrollTop();
+    var windowHeight = $(this).height();
+    var parallaxImage = $('.parallax-image');
+    var maxHeight = 2 * windowHeight; // Adjust as needed
+
+    if (scrollTop <= maxHeight) {
+      var newHeight = 100 + (scrollTop / maxHeight) * 100;
+      var maxGap = 40; // 40vw
+
+      parallaxImage.css('height', newHeight + 'vh');
+      parallaxImage.css('clip-path', 'polygon(0 0, 100% 0, 100% ' + (100 - maxGap) + '%, 0 ' + maxGap + '%)');
+    }
+  });
+});
+
+
+
+
+</script>
+<div class="parallax-container">
+    <img src='{% static "pashupati.jpg" %}' class="parallax-image">
+	</div>
+	

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Display</title>
+    <style>
+        /* Add your custom CSS styles here */
+        #data-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .data-item {
+            width: 30%;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        #navigation {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Data Display</h1>
+
+    <div id="data-container">
+        <!-- Data items will be dynamically added here -->
+    </div>
+
+    <div id="navigation">
+        <button id="prev-btn">Previous</button>
+        <button id="next-btn">Next</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        var currentPage = 0;
+        var itemsPerPage = 3; // Number of items to display per page
+
+        var data = [
+            {% for image in images %}
+            {
+                "image": "{{ image.image.url }}",
+                "name": "{{ image.name }}",
+                "description": "{{ image.description }}",
+                "location": "{{ image.location }}",
+                "type": "{{ image.type }}"
+            },
+            {% endfor %}
+            // Similar blocks for other models: Gallery, Politics, text_info
+        ];
+
+        function updateDataDisplay() {
+            $("#data-container").empty();
+            var startIndex = currentPage * itemsPerPage;
+            var endIndex = startIndex + itemsPerPage;
+
+            for (var i = startIndex; i < endIndex && i < data.length; i++) {
+                var item = data[i];
+                var itemHTML = `
+                    <div class="data-item">
+                        <img src="${item.image}" alt="${item.name}">
+                        <h2>${item.name}</h2>
+                        <p>${item.description}</p>
+                        <p>${item.location}</p>
+                        <p>${item.type}</p>
+                    </div>
+                `;
+                $("#data-container").append(itemHTML);
+            }
+        }
+
+        $("#prev-btn").click(function () {
+            if (currentPage > 0) {
+                currentPage--;
+                updateDataDisplay();
+            }
+        });
+
+        $("#next-btn").click(function () {
+            var totalPages = Math.ceil(data.length / itemsPerPage);
+            if (currentPage < totalPages - 1) {
+                currentPage++;
+                updateDataDisplay();
+            }
+        });
+
+        // Initial data display
+        updateDataDisplay();
+    </script>
+</body>
+</html>
